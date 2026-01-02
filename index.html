@@ -3,9 +3,453 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello! Testing, and coming soon</title>
+    <meta name="description" content="Christopher Rowe - Data Engineer & ML Enthusiast. Python developer specializing in data engineering, machine learning, and infrastructure automation.">
+    <meta name="author" content="Christopher Rowe">
+    <title>Christopher Rowe | Data Engineer & ML Enthusiast</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #D62598;
+        --bg-dark: #0d1117;
+        --bg-darker: #010409;
+        --text-primary: #e6edf3;
+        --text-secondary: #8b949e;
+        --border-color: #30363d;
+        --card-bg: #161b22;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        padding: 60px 0 40px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: var(--text-primary);
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+      }
+
+      .tagline {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      /* Navigation Links */
+      .social-links {
+        margin-top: 25px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .social-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .social-links a:hover {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      /* Main Content */
+      main {
+        padding: 60px 0;
+      }
+
+      section {
+        margin-bottom: 80px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+        display: inline-block;
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        gap: 20px;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(214, 37, 152, 0.2);
+      }
+
+      .project-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 12px;
+        font-size: 1.3rem;
+      }
+
+      .project-card p {
+        color: var(--text-secondary);
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+
+      .tag {
+        background: var(--bg-darker);
+        color: var(--text-secondary);
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        border: 1px solid var(--border-color);
+      }
+
+      .project-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .project-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Skills Section */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .skill-category {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+      }
+
+      .skill-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .skill-category ul {
+        list-style: none;
+      }
+
+      .skill-category li {
+        color: var(--text-secondary);
+        padding: 6px 0;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .skill-category li:before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+
+      footer p {
+        margin-bottom: 10px;
+      }
+
+      .fun-fact {
+        font-style: italic;
+        color: var(--primary-color);
+        margin-top: 15px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .projects-grid,
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          margin-bottom: 50px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div>If you can read this, then I didn't mess up. :P</div>
+    <header>
+      <div class="container">
+        <h1>Christopher Rowe</h1>
+        <p class="subtitle">Data Engineer & ML Enthusiast</p>
+        <p class="tagline">Building cool stuff with Python, Docker & Databases</p>
+
+        <div class="social-links">
+          <a href="https://github.com/rowevscolumn" target="_blank">GitHub</a>
+          <!-- <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> -->
+          <!-- <a href="mailto:your.email@example.com">Email</a> -->
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- About Section -->
+        <section id="about">
+          <h2>About Me</h2>
+          <div class="about-content">
+            <p>
+              Hi! I'm Christopher, a passionate data engineer and machine learning enthusiast based in Toronto, Canada. 
+              I specialize in building robust data pipelines, infrastructure automation, and exploring the intersection of 
+              data science and software engineering.
+            </p>
+            <p>
+              With experience spanning Perl and Python development, database technologies (SQL and NoSQL), and modern 
+              DevOps practices, I love learning new technologies and sharing my knowledge with others. Currently working 
+              as a Teaching Assistant, I help students master MySQL, MongoDB, Python, and R.
+            </p>
+            <p>
+              When I'm not coding, you'll find me playing video games (Super Metroid is the GOAT!), watching hockey and 
+              football, or enjoying a good board game with friends.
+            </p>
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+          <h2>Featured Projects</h2>
+          <div class="projects-grid">
+
+            <!--
+            <div class="project-card">
+              <h3>Airflow Data Pipelines</h3>
+              <p>
+                Home server Apache Airflow setup for automated ETL workflows, including cryptocurrency price tracking 
+                and analysis pipelines.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Apache Airflow</span>
+                <span class="tag">Python</span>
+                <span class="tag">ETL</span>
+                <span class="tag">Docker</span>
+              </div>
+              <a href="https://github.com/rowevscolumn/airflow_local" class="project-link">View on GitHub →</a>
+            </div>
+            -->
+
+            <div class="project-card">
+              <h3>NFL Data Science Capstone</h3>
+              <p>
+                Machine learning classification model predicting first down success in NFL running plays using 
+                Logistic Regression, Decision Trees, Random Forest, and K-Nearest Neighbors.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">Data Analysis</span>
+              </div>
+              <a href="https://github.com/rowevscolumn/capstone" class="project-link">View on GitHub →</a>
+            </div>
+
+            <!--
+            <div class="project-card">
+              <h3>Home Server Infrastructure</h3>
+              <p>
+                Complete Docker Compose setup for self-hosted homelab including MySQL, MongoDB, Neo4j, Airflow, 
+                Prometheus, Grafana, and media services.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Docker</span>
+                <span class="tag">DevOps</span>
+                <span class="tag">Self-Hosted</span>
+                <span class="tag">Monitoring</span>
+              </div>
+              <a href="https://github.com/rowevscolumn/homeserver-docker-compose" class="project-link">View on GitHub →</a>
+            </div>
+            -->
+
+            <div class="project-card">
+              <h3>Final Fantasy Tactics in Neo4j</h3>
+              <p>
+                Exploring graph database concepts by loading and analyzing Final Fantasy Tactics game data in Neo4j. 
+                A hands-on learning project for understanding graph relationships.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Neo4j</span>
+                <span class="tag">Graph Database</span>
+                <span class="tag">Python</span>
+                <span class="tag">Data Analysis</span>
+              </div>
+              <a href="https://github.com/rowevscolumn/FinalFantasyTacticsInNeo4j" class="project-link">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+              <h3>QR Code Generator</h3>
+              <p>
+                Simple Python utility to generate WiFi QR codes for parties and gatherings. Makes connecting guests 
+                to your network effortless and fun!
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">QR Code</span>
+                <span class="tag">Utility</span>
+              </div>
+              <a href="https://github.com/rowevscolumn/QRCodeForParties" class="project-link">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+              <h3>Weight Loss Journey Tracker</h3>
+              <p>
+                Personal weight tracking application using Python and Pandas. Data visualization ready for Power BI 
+                integration and analysis.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Data Viz</span>
+              </div>
+              <a href="https://github.com/rowevscolumn/WeightLossJourney" class="project-link">View on GitHub →</a>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+          <h2>Tech Stack</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Languages</h3>
+              <ul>
+                <li>Python</li>
+                <li>SQL / MySQL</li>
+                <li>C#</li>
+                <li>Bash</li>
+                <li>Perl</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Data & ML</h3>
+              <ul>
+                <li>Apache Airflow</li>
+                <li>Jupyter Notebooks</li>
+                <li>Pandas & NumPy</li>
+                <li>Scikit-learn</li>
+                <li>Matplotlib & Seaborn</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Databases</h3>
+              <ul>
+                <li>Oracle SQL</li>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+                <li>Neo4j</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>DevOps & Tools</h3>
+              <ul>
+                <li>Docker & Docker Compose</li>
+                <li>Git & GitHub</li>
+                <li>Prometheus & Grafana</li>
+                <li>Linux/Ubuntu Server</li>
+                <li>VS Code</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Christopher Rowe. Built with HTML & CSS.</p>
+        <p>Toronto, Ontario, Canada</p>
+        <p class="fun-fact">⚡ Fun fact: It's pronounced "gif"</p>
+      </div>
+    </footer>
   </body>
 </html>
